@@ -15,9 +15,7 @@ class buscarVeiculoModel extends Conexao
         if(($stmt->execute()) and ($stmt->rowCount() != 0))
         {
             $carros = $stmt->fetchAll();
-            //die(var_dump($carros));
             $a = json_encode(['status' => 200, 'dados' => $carros]);
-            //die(var_dump($a));
 
             //criamos o arquivo 
             $arquivo = fopen('App/view/carrosBusca.json','w'); 
@@ -35,8 +33,10 @@ class buscarVeiculoModel extends Conexao
 
             return true;
         }
-        else
+        else{
+
             die("erro");
+        }
     }
 }
 

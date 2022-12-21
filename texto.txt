@@ -1,0 +1,1 @@
+http://localhost/api-veiculos/index.php?q=buscarVeiculo&v={%22valor%22:%22azul%22,%22parametro%22:%22cor%22}

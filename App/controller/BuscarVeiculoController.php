@@ -1,7 +1,7 @@
 <?php
 namespace App\controller;
 namespace App\Models;
-//include('App/model/BuscarVeiculoModel.php');
+include('App/model/BuscarVeiculoModel.php');
 use App\Models\buscarVeiculoModel;
 
 header('Content-Type: application/json; charset=utf-8');
@@ -13,14 +13,14 @@ class buscarVeiculoController
         $valor = $json['valor'];
         $param = $json['parametro'];
 
-        die($valor);
-
         $fazerBusca = new buscarVeiculoModel;
         $validar    = $fazerBusca->buscarVeiculo($param, $valor);
 
         if($validar)
-            die('inseriu');
+            return true;
+            //header('location: App/view/carrosBusca.json');
+            //die('buscou');
         else
-            die('n iseriu');
+            die('erro');
     }
 }

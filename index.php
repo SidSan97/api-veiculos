@@ -5,9 +5,10 @@ include ('App/controller/BuscarVeiculoController.php');
 
 use App\controller\buscarVeiculoController;
 use App\controller\CadastrarController;
+use App\Models\buscarVeiculoController as BuscarVeiculoControl;
 use App\Models\ListarVeiculosController;
 
-header('Content-Type: application/json; charset=utf-8');
+//header('Content-Type: application/json; charset=utf-8');
 
 if($_GET['q'] == "cadastrar")
 {
@@ -23,8 +24,6 @@ else if($_GET['q'] == "pesquisarTudo")
 {  
     $listarVeiculos = new ListarVeiculosController;
     $listarVeiculos->listarVeiculos();
-   
-    //header('location: teste.php');
 }
 else if($_GET['q'] == "buscarVeiculo")
 {
@@ -32,7 +31,7 @@ else if($_GET['q'] == "buscarVeiculo")
 
     $obj = json_decode($json, true);
     
-    $buscaVeiculo = new buscarVeiculoController;
+    $buscaVeiculo = new BuscarVeiculoControl;
     $buscaVeiculo->busca($obj);
 }
 
