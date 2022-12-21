@@ -1,6 +1,9 @@
 <?php
 include ('App/controller/CadastrarController.php');
 include ('App/controller/ListarVeiculosController.php');
+include ('App/controller/BuscarVeiculoController.php');
+
+use App\controller\buscarVeiculoController;
 use App\controller\CadastrarController;
 use App\Models\ListarVeiculosController;
 
@@ -13,15 +16,24 @@ if($_GET['q'] == "cadastrar")
     $obj = json_decode($json, true);
 
     $cadControl = new CadastrarController;
-    $a = $cadControl->cadastrar($obj);
+    $cadControl->cadastrar($obj);
 
 }
-if($_GET['q'] == "pesquisarTudo")
+else if($_GET['q'] == "pesquisarTudo")
 {  
     $listarVeiculos = new ListarVeiculosController;
     $listarVeiculos->listarVeiculos();
    
     //header('location: teste.php');
+}
+else if($_GET['q'] == "buscarVeiculo")
+{
+    $json = $_GET['v'];
+
+    $obj = json_decode($json, true);
+    
+    $buscaVeiculo = new buscarVeiculoController;
+    $buscaVeiculo->busca($obj);
 }
 
 ?>
