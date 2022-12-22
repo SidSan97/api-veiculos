@@ -16,11 +16,6 @@ class buscarVeiculoController
         $fazerBusca = new buscarVeiculoModel;
         $validar    = $fazerBusca->buscarVeiculo($param, $valor);
 
-        if($validar)
-            return true;
-            //header('location: App/view/carrosBusca.json');
-            //die('buscou');
-        else
-            die('erro');
+        header('location: App/view/exibir-busca.php?q='.$validar);
     }
 }

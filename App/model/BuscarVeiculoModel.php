@@ -15,23 +15,10 @@ class buscarVeiculoModel extends Conexao
         if(($stmt->execute()) and ($stmt->rowCount() != 0))
         {
             $carros = $stmt->fetchAll();
-            $a = json_encode(['status' => 200, 'dados' => $carros]);
+            $json = json_encode(['status' => 200, 'dados' => $carros]);
+            $json = base64_encode($json);
 
-            //criamos o arquivo 
-            $arquivo = fopen('App/view/carrosBusca.json','w'); 
-
-            //verificamos se foi criado 
-            if ($arquivo == false) 
-                die('Não foi possível criar o arquivo.'); 
-
-            //escrevemos no arquivo 
-            $texto = $a; 
-            fwrite($arquivo, $texto); 
-
-            //Fechamos o arquivo após escrever nele 
-            fclose($arquivo);
-
-            return true;
+            return $json;
         }
         else{
 
