@@ -11,9 +11,6 @@ class ListarVeiculosController
         $todosVeiculos = new ListarVeiculosModel();
         $resultado = $todosVeiculos->buscarVeiculos();
 
-        if($resultado)
-            header('location: App/view/carros.json');
-        else
-            die('n buscou');
+        header('location: App/view/exibir-veiculos.php?q='.$resultado);
    }
 }
