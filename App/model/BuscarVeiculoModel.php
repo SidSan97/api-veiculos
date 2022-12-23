@@ -26,6 +26,3 @@ class buscarVeiculoModel extends Conexao
         }
     }
 }
-
-/*$a = new buscarVeiculoModel;
-$a->buscarVeiculo($_GET['p'], $_GET['v']);*/
